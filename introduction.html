@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Chrome DevRel Team (chrome-devrel@googlegroups.com)
+                 Alex Russell (slightlyoff@chromium.org)
+                 Brad Neuberg
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+    <title>Introducción al desarrollo Web con PHP</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+    <link id="prettify-link" href="src/prettify/prettify.css" rel="stylesheet" disabled />
+    <link href="css/moon.css" class="theme" rel="stylesheet" />
+    <link href="css/sand.css" class="theme" rel="stylesheet" />
+    <link href="css/sea_wave.css" class="theme" rel="stylesheet" />
+    <link href="css/default.css" class="theme" rel="stylesheet" media="screen"  />
+    <link href="css/common.css" rel="stylesheet" media="screen" />
+	<style>
+	.slides{
+		background:url('pix/SymfonyBack.png');
+	}
+	.container-name{
+		background:url('pix/myname.png') no-repeat;
+		height:400px;
+		margin:0 200px;
+	}
+	.slide ul > li {
+             font-size: 26px;
+             line-height: 33px;
+             opacity: 0.85;
+     }
+	.slide ul > li:hover {
+             opacity: 1;
+           }
+ 	.slide ul a {
+             border-bottom: 0;
+           }
+	.slide ul a:hover{
+             border-bottom: 2px solid #3f3f3f;
+           }
+	/*.slide{width:1000px;}
+	.slide.current { margin-left:-550px;}*/
+	</style>
+	<link href="src/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="src/prettify.js"></script>
+  </head>
+  <body>
+    <nav id="helpers">
+      <button title="Previous slide" id="nav-prev" class="nav-prev">⇽</button> 
+      <button title="Jump to a random slide" id="slide-no">2</button> 
+      <button title="Next slide" id="nav-next" class="nav-next">⇾</button>
+      <menu>
+        <button type="checkbox" data-command="toc" title="Table of Contents" class="toc"></button>
+        <!-- <button type="checkbox" data-command="resources" title="View Related Resources">☆</button> -->
+        <button type="checkbox" data-command="notes" title="View Slide Notes"></button>
+        <button type="checkbox" data-command="source" title="View slide source">↻</button>
+        <!--<button type="checkbox" data-command="help" title="View Help">?</button> -->
+      </menu>
+    </nav>
+    <div class="presentation">
+      <div id="presentation-counter">Cargando...</div>
+      <div class="slides">
+        <div class="slide" id="landing-slide">
+          <style>
+            #landing-slide p {
+              font-size: 35px;
+            }
+            p#disclaimer-message {
+              font-size: 20px;
+            }
+          </style>
+          <section class="middle">
+            <p>Programación y desarrollo Web con PHP</p>
+
+            <p>Flisol 2012 - UACM<span id="left-init-key" class="key" style="opacity:0.1;">&rarr;</span></p>
+            <p id="disclaimer-message">Obtener la presentación <a href="http://github.com/Ajaxman/php">Github Ajaxman</a></p>
+             <img src="pix/elePHPant_png_512.png" style="margin-top:-90px;" />
+          </section>
+          <aside class="note">
+            <section>
+              Welcome! (This field is for presenter notes and commentary.)
+            </section>
+
+          </aside> 
+        </div>
+
+	  <div class="slide">
+          <header><h1>¡Empecemos!</h1></header>
+          <style>
+            #press-list > li {
+              font-size: 22px;
+              line-height: 33px;
+              opacity: 0.85;
+        	  display:block;
+        	  margin:10px;
+        	  background:#ccc;
+        	  float:left;
+        	  padding:5px 5px;
+        	  border-radius:10px
+            }
+            #press-list > li:hover {
+              opacity: 1;
+            }
+            #press-list a {
+              border-bottom: 0;
+            }
+            #press-list a:hover{
+              border-bottom: 2px solid #3f3f3f;
+            }
+            #press-list img {
+              vertical-align: middle;
+              margin-left: 15px;
+            }
+          </style>
+          <section>
+			<div class="container-name">
+				<br><br><br><br><br><br>
+				<p style="margin-left:117px;font-size:17px;">Javier López López</p>
+			</div>
+            <ul id="press-list">
+            	<li>
+            		* Desarrollador PHP
+            	</li>
+            	<li>
+            		* Comunidad PHP
+            	</li>
+            	<li>
+            		* Open Source Fan
+            	</li>            
+            	<li>
+            		* Comunidad Kohana México
+            	</li>
+            	<li>
+            		* Linux user
+            	</li>
+            	<li>
+            		@ajaxman
+            	</li>
+            </ul>
+          </section>
+        </div>
+	
+	<div class="slide">
+          <header><h1>Open Source en la Web</h1></header>
+          <style>
+            .opensource > li {
+              font-size: 26px;
+              line-height: 33px;
+              opacity: 0.85;
+            }
+            .opensource > li:hover {
+              opacity: 1;
+            }
+            .opensource a {
+              border-bottom: 0;
+            }
+            .opensource a:hover{
+              border-bottom: 2px solid #3f3f3f;
+            }
+          </style>
+          <section>
+            <ul class="opensource">
+				<li>Servidores Web: 75%(Apache, Ngix), 15% Microsoft</li>
+				<li>Sitios populares: Facebook(PHP),Yahoo(PHP), Wikipedia(PHP)</li>
+				<li>Lenguajes Open Source: PHP, Ruby, Python, Javascript</li> 
+            </ul>
+          </section>
+          <div style="padding:20px 350px;">
+          	<img src="pix/php-python-ruby.jpg" />          	
+          </div>
+        </div>	
+	
+	<div class="slide">
+          <header><h1>PHP</h1></header>
+          <style>
+            .opensource > li {
+              font-size: 26px;
+              line-height: 33px;
+              opacity: 0.85;
+            }
+            .opensource > li:hover {
+              opacity: 1;
+            }
+            .opensource a {
+              border-bottom: 0;
+            }
+            .opensource a:hover{
+              border-bottom: 2px solid #3f3f3f;
+            }
+          </style>
+          <section>
+          	<p>PHP es un lenguaje de programación interpretado</p>
+            <ul class="opensource">
+            	<li>Creado por: Rasmus Lerdorf(Groenlandia) en 1995</li>
+				<li>Reescrito desde cero en su versión  3 por: Zeev Suraski y Andi Gutmans (Israel)(Zend Inc.)</li>
+				<li>Open Source</li>
+				<li>Mucha documentación</li>
+				<li>Muchos Frameworks:Kohana, Zend, Symfony, CakePHP, Lithium, Solar, Yii, CodeIgniter</li> 
+				<li>Versión 5.4 lanzada el 1 de marzo 2012</li>
+            </ul>
+          </section>
+          <pre class="prettyprint" id="PHP">
+          	&lt;?php echo 'HelloWorld' ?>
+          </pre>
+        </div>
+        
+	<div class="slide">
+          <header><h1>Instalación de PHP en Linux(Aptitude)</h1></header>
+          
+          <section>
+          <p>Distribuciones Debian (Debian,Ubuntu, Linux Mint)</p>
+         	<pre class="prettyprint">
+#Instalar Apache2
+sudo apt-get install apache2 libapache2-mod-php5
+
+#MySQL5
+sudo apt-get install mysql-server mysql-server-5.1 libapache2-mod-auth-mysql
+
+#PHP5
+sudo apt-get install php5 php5-mysql
+         	</pre>
+         	<ul>
+         		<li>Apache: /etc/apache2/httpd.conf</li>
+				<li>PHP: /etc/php5/apache2/php.ini</li>
+				<li>MySQL: /etc/mysql/my.cnf</li>
+         		<li>/var/www/ Directorio DocumentRoot por default</li>
+         		<li>Editor de textos (Notepad++, Vim, Kate, kwrite, Gedit)</li>
+         		<li>IDE: Zend Studio, Eclipse, Netbeans, Aptana [Dreamweaver no es un IDE]</li>
+         	</ul>
+         	</section>
+        </div>
+
+
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>A programar en PHP</h1></header>
+          
+          <section>
+         	 <p>Conociendo PHP (hola.php)</p>
+         	<pre class="prettyprint">
+&lt;? echo 'Hola soy un string' ?>
+&lt;? echo 'Hola soy un string mas un entero'.1 ?>
+&lt;? echo 'concatenado'.'strings' ?>
+&lt;?
+#probando metodo GET http://localhost/examples/hola.php?nombre=ajaxman
+ echo 'Hola'.$_GET['nombre'];
+
+#definiendo variables
+$nombre = 'javier';
+
+#constantes
+define('PAIS','Mexico');
+
+#tipos de variables;
+
+$string = 'cualquier texto ';
+$int = 152;
+$booleano = TRUE;//mayuscula
+$nulo = NULL;
+$real=3.14159;
+$array = array(); //vacio 
+$array = array(1,2,5,4); //con enteros
+$array = array(1,5,'hola') //mixto
+$array = array('nombre' => 'javier'); //con claves y valores
+$nuevo_array = ['a',5]; //PHP 5.4+
+?>
+         	</pre>
+         	</section>
+        </div>
+	<!-- End Slide -->
+
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Web con PHP y HTML</h1></header>
+          
+          <section>
+         	 <p>Conociendo PHP (pagina.php)</p>
+         	<pre class="prettyprint">
+&lt;!DOCTYPE html>
+&lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="utf-8">
+    &lt;title>Mi pagina Web con PHP&lt;/title>
+ &lt;/head>
+  &lt;body>
+  &lt;h1>Hola&lt;/h1>
+  &lt;?php echo 'Ajaxman'; ?>
+  &lt;ul>
+    &lt;li>&lt;?php echo strtoupper('ajaxman') ?>&lt;/li>
+    &lt;li>&lt;?php echo striptags('&lt;h1>Elimina los tags html, solo deja el texto&lt;/h1>') ?>&lt;/li>
+  &lt;/ul>
+  &lt;?php $edad = 18; ?>
+  &lt;hr>
+  &lt;?php
+  $valores = array('nombre','edad');
+  echo $valores[0];
+  ?>
+  &lt;p>
+    &lt;?php echo '&lt;strong>'.$edad.'&lt;/strong>' ?>
+  &lt;/p>
+  &lt;/body>
+&lt;/html>
+         	</pre>
+         	</section>
+        </div>
+	<!-- End Slide -->
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Estructuras de control </h1></header>
+          
+          <section>
+         	 <p>Conociendo PHP (estructuras.php)</p>
+         	<pre class="prettyprint">
+&lt;!DOCTYPE html>
+&lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="utf-8">
+    &lt;title>Estructuras de control&lt;/title>
+ &lt;/head>
+  &lt;body>
+    &lt;form action="estructuras.php" method="GET">
+      &lt;p>
+	&lt;label>Que deseas buscar&lt;/label>
+	&lt;input type="text" name="search" value="" />
+      &lt;/p>
+      &lt;p>
+	&lt;input type="submit" value="Busqueda" />
+      &lt;/p>
+    &lt;/form>
+
+    &lt;?php 
+    #if
+    if(isset($_GET['search'])){
+      $search = $_GET['search'];
+      echo 'Tu estas buscando '.$search;
+    }
+  	?>
+  &lt;/body>
+&lt;/html>
+         	</pre>
+         	</section>
+        </div>	
+	<!-- End Slide -->
+			
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Estructuras de control - parte 2</h1></header>
+          
+          <section>
+         	 <p>Conociendo PHP (estructuras.php)</p>
+         	<pre class="prettyprint">
+&lt;?php
+    #for
+    $count = 20;
+    
+    for($i= 0; $i&lt;=20; $i++)
+    {
+      echo 'iteracion num'.$i;
+    }
+
+    #while
+    $i = 1;
+    while ($i &lt;= 10) {
+      echo $i;  
+      $i++;
+    }
+  
+   #foreach
+    $arrayLenguajes = array('php','python','perl','c++');
+    foreach($arrayLenguajes as $lenguaje){
+	echo $lenguaje.'&lt;br>';
+    }
+  ?>
+         	</pre>
+         	</section>
+        </div>	
+	<!-- End Slide -->
+<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Metodos PHP</h1></header>
+         	<style>
+         	pre.minimal{
+         		font-size:12px;
+         	}
+         	</style>
+          <section>
+         	 <p>GET y POST</p>
+         	 <pre class="prettyprint minimal">
+&lt;!DOCTYPE html>
+&lt;html lang="es">
+  &lt;body>
+    &lt;form action="postyget.php" method="GET">
+      &lt;p>
+	&lt;label>Que deseas buscar&lt;/label>
+	&lt;input type="text" name="search" value="" />
+      &lt;/p>
+      &lt;p>
+	&lt;input type="submit" value="Busqueda" />
+      &lt;/p>
+    &lt;/form>
+&lt;?php  
+if(isset($_GET['search'])){
+  var_dump($_GET);
+}
+else
+{  echo "&lt;p>no enviaste nada por get&lt;/p>"; }
+?>
+    &lt;form action="postyget.php" method="POST">
+      &lt;p>
+	&lt;label>Usuario&lt;/label>
+	&lt;input type="text" name="user" value="" />
+      &lt;/p>
+      &lt;p>
+	&lt;input type="submit" value="Busqueda" />
+      &lt;/p>
+    &lt;/form>
+&lt;?php  
+if(isset($_POST['user']) AND isset($_POST['password'])){
+  var_dump($_POST);
+}
+else
+{  echo "&lt;p>no enviaste nada por POST&lt;/p>"; }
+?>
+  &lt;/body>
+&lt;/html>         	 
+         	 </pre>
+         	</section>
+         </div>
+        <!-- End Slide -->	
+<!-- Begin Slide -->
+	<div class="slide">
+          <header><h1>Funciones en PHP</h1></header>
+          <section>
+          	<small style="font-size:17px;"> 
+          		Es un conjunto de rutinas y 
+          		acciones que a lo largo del script van a ser ejecutadas multitud de veces agrupados en una 
+          		FUNCION y desde cualquier punto del script puede ser llamada y ejecutada. 
+          		A su vez, esta función puede recibir parámetros externos de los cuales dependa el resultado de una función.</small></li>
+          	
+<pre class="prettyprint">
+&lt;?php
+
+function names($cadena = '')
+{
+  $resultado = strtolower( $cadena );
+  $resultado = ucfirst( $resultado );
+  return $resultado;
+}
+
+echo names('Palabras rarAS para VER como FUNCIona ');
+
+function createList($array = array())
+{
+  $lis = '';
+  foreach($array as $item)
+  {
+    $lis .= '&lt;li>'.$item.'&lt;/li>'.PHP_EOL;
+  }
+  return '&lt;ul>'.PHP_EOL.$lis.PHP_EOL.'&lt;/ul>';
+}
+$lista = array('lunes','martes','miercoles','jueves','viernes');
+echo "&lt;h1>Lista de dias habiles&lt;/h1>";
+echo createList($lista); 
+?>
+</pre>
+         	
+         </section>
+        </div>	
+	<!-- End Slide -->	
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Bases de datos</h1></header>
+          <section>
+          	  <p>Caracteristicas de base de datos</p>
+         	 <ul>
+         	 	<li>Conexión con MySQL, PostgreSQL, Oracle, ODBC, DB2, Microsoft SQL Server, Firebird y SQLite.</li>
+         	 	<li>Extension PDO, para conectarse con cualquier base que soporte PDO.</li>
+         	 	<li>Tambien hay drivers para bases NoSQL como MongoDB, Cassandra, CouchDB, entre otros.</li>
+         	 	<li>Es simple de usar</li>
+         	 	<li>ORM
+         	 		<ul>
+         	 			<li>Doctrine</li>
+         	 			<li>Propel</li>         	 			         	 
+         	 		</ul>
+         	 	</li>
+         	 </ul>
+         	</section>
+        </div>	
+	<!-- End Slide -->
+	
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Bases de datos</h1></header>
+          <section>
+          	  <p>Consultas con bases de datos</p>
+         	 <pre class="prettyprint">
+&lt;?php 
+	$link = mysql_connect("localhost", "root",'root'); 
+	mysql_select_db("test", $link); 
+	$result = mysql_query("SELECT * FROM agenda", $link); 
+	echo "Nombre: ".mysql_result($result, 0, "nombre")."&lt;br>"; 
+	echo "Dirección: ".mysql_result($result, 0, "direccion")."&lt;br>"; 
+	echo "Teléfono :".mysql_result($result, 0, "telefono")."&lt;br>"; 
+	echo "E-Mail :".mysql_result($result, 0, "email")."&lt;br>"; 
+	
+	#otra consulta
+	$result = mysql_query("SELECT nombre, email FROM agenda", $link); 
+	echo "&lt;table border = '1'> \n"; 
+	echo "&lt;tr>&lt;td>Nombre&lt;/td>&lt;td>E-Mail&lt;/td>&lt;/tr> \n"; 
+	while ($row = mysql_fetch_row($result)){ 
+	       echo "&lt;tr>&lt;td>$row[0]&lt;/td>&lt;td>$row[1]&lt;/td>&lt;/tr> \n"; 
+	} 
+	echo "&lt;/table> \n"; 
+?>
+         	 </pre>
+        </div>	
+	<!-- End Slide -->	
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Codigo Spaghetti</h1></header>
+          <section>
+         	 <pre class="prettyprint">
+&lt;!DOCTYPE html>
+&lt;html lang="es">
+  &lt;head>
+    &lt;meta charset="utf-8">
+    &lt;title>Estructuras de control&lt;/title>
+ &lt;/head>
+  &lt;body>
+  &lt;h1>Revisando mi codigo&lt;/h1>         	 
+&lt;?php 
+	$link = mysql_connect("localhost", "root",'root'); 
+	mysql_select_db("test", $link); 
+	$result = mysql_query("SELECT * FROM agenda", $link); 
+	echo "Nombre: ".mysql_result($result, 0, "nombre")."&lt;br>"; 
+	echo "Dirección: ".mysql_result($result, 0, "direccion")."&lt;br>"; 
+	echo "Teléfono :".mysql_result($result, 0, "telefono")."&lt;br>"; 
+	echo "E-Mail :".mysql_result($result, 0, "email")."&lt;br>"; 
+?>
+&lt;hr />
+&lt;h1>Agenda&lt;/h1>
+&lt;?php	
+	#otra consulta
+	$result = mysql_query("SELECT nombre, email FROM agenda", $link); 
+	echo "&lt;table border = '1'> \n"; 
+	echo "&lt;tr>&lt;td>Nombre&lt;/td>&lt;td>E-Mail&lt;/td>&lt;/tr> \n"; 
+	while ($row = mysql_fetch_row($result)){ 
+	       echo "&lt;tr>&lt;td>$row[0]&lt;/td>&lt;td>$row[1]&lt;/td>&lt;/tr> \n"; 
+	} 
+	echo "&lt;/table> \n"; 
+?>
+&lt;/body>
+&lt;/html>
+         	 </pre>
+         	</section>
+        </div>	
+	<!-- End Slide -->
+	
+	<!-- End Slide -->
+	
+			
+			<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>¿WTF, Qué le páso a mi código?</h1></header>
+          <section>
+         	 <img src="pix/mother-of-god-template.jpg" style="margin-left:150px;margin-top:70px;" />
+         	</section>
+        </div>	
+	<!-- End Slide -->
+	
+			<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Organizando</h1></header>
+          <section>
+         	 <ul>
+         	 	<li>Include: Error: warning</li>
+         	 	<li>Require: Error: Fatal</li>
+         	 </ul>
+         	 <pre class="prettyprint">
+&lt;?php 
+$link = mysql_connect("localhost", "root",'root'); 
+mysql_select_db("test", $link); 
+?>
+</pre>
+
+<pre class="prettyprint">
+&lt;?php
+include('connection.php');
+$result = mysql_query("SELECT nombre, email FROM agenda", $link); 
+?>
+</pre>
+<pre class="prettyprint">
+&lt;?php  include('query.php'); ?>
+&lt;table border='1'>
+  &lt;tr>
+    &lt;td>Nombre&lt;/td>
+    &lt;td>E-Mail&lt;/td>
+  &lt;/tr>
+  &lt;?php while ($row = mysql_fetch_row($result)): ?>
+  &lt;tr>
+    &lt;td>&lt;?php echo $row[0] ?>&lt;/td>
+    &lt;td>&lt;?php echo $row[0] ?>&lt;/td>
+  &lt;/tr>	
+   &lt;?php endwhile; ?>
+&lt;/table>
+</pre>
+         	</section>
+        </div>	
+	<!-- End Slide -->		
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Soluciones</h1></header>
+          <section>
+         	<ul>
+         		<li>Programación Orientada a Objetos</li>
+         		<li>Arquitecturas (MVC)</li>
+         		<li>Template engines</li>
+         		<li>Patrones de diseño</li>		
+				<li>Frameworks</li>
+				<li>Metodologias y Herramientas</li>         				
+         	</ul>	 
+         	<img src="pix/felicidad.jpg" style="margin-left:150px;" />
+         </section>
+        </div>	
+	<!-- End Slide -->
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Programación Orientada a Objetos(OOP)</h1></header>
+          <style>
+          .slide ul > li > ul > li {
+    		font-size: 20px;
+    		line-height: 30px;
+          }
+          </style>
+          <section>
+         	<ul>
+         		<li>Principios
+         			<ul>
+         				<li>Abstracción: <small>La abstracción consiste en aislar un elemento de su contexto o del resto de los elementos que lo acompañan.</small></li>
+         				<li>Herencia: <small>La herencia, permite crear clases derivadas de otra clase permitiendo con ello la reutilización y la extensibilidad del software.</small></li>
+         				<li>Polimorfismo: <small>El polimorfismo permite a un mismo nombre de método representar código diferente, en consecuencia puede expresar muchos comportamientos distintos.</small></li>         				
+         				<li>Encapsulamiento: <small>Significa reunir a todos los elementos que pueden considerarse pertenecientes a una misma entidad, al mismo nivel de abstracción, permitiendo aumentar la cohesión de los componentes del sistema.</small></li>         				
+         				<li>Ocultamiento:<small>Cada objeto está aislado del exterior, es un módulo natural, y cada tipo de objeto expone una interfaz a otros objetos que especifica cómo pueden interactuar con los objetos de la clase</small></li>         				
+         			</ul>
+         		</li>       				
+         	</ul>	          	       
+         </section>
+        </div>	
+	<!-- End Slide -->
+	<!-- Begin Slide -->
+	<div class="slide">
+          <header><h1>Programación Orientada a Objetos(OOP)</h1></header>
+          <section>
+               <p>Ejemplo de una clase</p>
+<pre class="prettyprint">
+&lt;?php
+class User {
+  //variables/propiedades
+  public $nombre;
+  protected $apellido;
+  private $edad;
+
+  //constante
+  const PAIS = 'Mexico';
+  
+  public function setData($nombre,$apellido,$edad)
+  {
+    $this->nombre = $nombre;
+    $this->apellido = $apellido;
+    $this->edad = $edad;
+  }
+
+  public function getUser()
+  {
+    return 'El usuario'.$this->user.' '.$this->apellido.', tiene '.
+    		$this->edad.' años y es de '.User::PAIS;
+  }
+
+}
+
+$user = new User();
+$user->setData('manuel','garcia','25');
+echo $user->getUser(); ?>
+</pre>
+         	
+         </section>
+        </div>	
+	<!-- End Slide -->
+			<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Arquitectura MVC</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+         	 <ul class="mini-list">
+         	 	<li>Modelo: <small>Logica de negocio, es donde se gestiona la base de datos</small></li>
+         	 	<li>Vista:<small>Este presenta el modelo en un formato adecuado para interactuar, usualmente la interfaz de usuario.</small></li>
+    			<li>Controlador:<small>El controlador es la clase que, recibe las peticiones del usuario las procesa consultando al modelo del cual extrae datos y los envia a la vista</small></li>         	 	
+         	 </ul>
+         	 <img src="pix/mvc.png" style="margin:0 150px; "/>
+         	</section>
+        </div>	
+	<!-- End Slide -->
+	
+			<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Template Engines</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	<p>
+          	Los motores de plantillas (Template engines), nos permiten escribir nuestras vistas sin usar PHP, 
+          	además poseen caracteristicas muy utiles como seguridad, filtros, y sobre todo rapidez.
+          	</p>
+         	 <ul>
+         	 	<li>Smarty</li>
+         	 	<li>Twig</li>
+    			<li>Mustache</li>        	 	
+         	 </ul>
+         	 <pre class="prettyprint">
+{% extends "base.html" %}
+{% block navigation %}
+    &lt;ul id="navigation">
+    {% for item in navigation %}
+        &lt;li>
+            &lt;a href="{{ item.href }}">
+                {% if 2 == item.level %}&nbsp;&nbsp;{% endif %}
+                {{ item.caption|upper }}
+            &lt;/a>
+        &lt;/li>
+    {% endfor %}
+    &lt;/ul>
+{% endblock navigation %}
+         	 
+         	 </pre>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Patrones de diseño</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	<p>
+          	Los patrones de diseño son la base para la búsqueda de soluciones a problemas comunes en el 
+          	desarrollo de software y otros ámbitos referentes al diseño de interacción o interfaces.<br />
+			Un patrón de diseño es una solución a un problema de diseño.
+          	</p>
+         	 <ul class="mini-list">
+         	 	<li>Singleton</li>
+         	 	<li>Factory</li>
+    			<li>MVC</li>        	 	
+    			<li>Multiton</li>
+    			<li>Decorator</li>
+    			<li>Abstract Factory</li>
+    			<li>Y muchos más</li>
+         	 </ul>
+         	 <img src="pix/simple-factory.png" style="float:right;margin-top:-250px;"/>
+         	</section>
+        </div>	
+	<!-- End Slide -->
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Frameworks</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+            ul.mini-list  li.minimal{ line-height:20px; }
+           </style>
+          <section>
+          	<p>
+          	Es una estructura conceptual y tecnológica de soporte definido, 
+          	normalmente con artefactos o módulos de software concretos, 
+          	con base a la cual otro proyecto de software puede 
+          	ser más fácilmente organizado y desarrollado.
+          	</p>
+         	 <ul class="mini-list min-lines">
+         	 	<li class="minimal">Zend</li>
+         	 	<li class="minimal">Symfony</li>
+    			<li class="minimal">Kohana</li>        	 	
+    			<li class="minimal">CakePHP</li>
+    			<li class="minimal">Yii</li>
+    			<li class="minimal">CodeIgniter</li>
+    			<li class="minimal">ZanPHP(México)</li>
+         	 </ul>
+         	 <img src="pix/kohanaframework.png" style="border-radius:10px;margin-top:-10px;"/>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+	<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Metodologias y Herramientas</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+         	 <ul>
+         	 	<li>TDD(Desarrollo Guiado por Pruebas):
+         	 		<small>
+         	 			Se basa en programar en base a requerimientos, y consiste en escribir primero la prueba y despues el codigo o refectorización.
+         	 		</small>
+         	 	</li>
+         	 	<li>Integración Continua:
+         	 		<small>Consiste en hacer integraciones automáticas(Compilación y ejecución de tests de todo un proyecto) 
+         	 				de un proyecto lo más a menudo posible para 
+         	 				así poder detectar fallos cuanto antes.</small>
+         	 	</li>         	
+    			<li>Metodologias Ágiles:<small>es un marco de trabajo conceptual 
+    							de la ingeniería de software que promueve iteraciones en el desarrollo 
+    							a lo largo de todo el ciclo de vida del proyecto.</small>
+    			</li>        	 	
+         	 </ul>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Presente y Futuro de PHP</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	<p>
+          	¿Debo aprender PHP, hoy en día?
+          	</p>
+         	 <ul>
+         	 	<li>PHP es el 6to lugar de popularidad en el mundo (según Indice TIOBE)</li>
+         	 	<li>Comunidades, Frameworks, Documentación</li>
+         	 	<li>Lenguaje muy usado en startups</li>
+    			<li>IDES</li>
+    			<li>Webserver integrado PHP 5.4</li>        	 	
+    			<li>Namespaces</li>
+    			<li>PHP 6 Unicode</li>
+    			<li>Webservices (mobile apps)</li>
+         	 </ul>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Donde puedo aprender más de PHP</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	<p>
+          	Recursos para PHP
+          	</p>
+         	 <ul>
+         	 	<li>Blogs</li>
+         	 	<li>PHP.net (nueva versión pronto)</li>
+         	 	<li>En las comunidades (Comunidad PHP México)</li>
+         	 	<li>Libros</li>
+         	 	<li>Recomendación: <a href="http://eugeniabahit.blogspot.mx/p/poo-y-mvc-en-php.html">http://eugeniabahit.blogspot.mx/p/poo-y-mvc-en-php.html</a></li>
+    			<li>Practicando</li>        	 	
+         	 </ul>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Agradecimientos</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	<p>
+          	Recursos para hacer esta presentación
+          	</p>
+         	 <ul>
+         	 	<li><a href="http://es.wikipedia.org">http://es.wikipedia.org</a></li>
+         	 	<li><a href="http://pok3.deviantart.com/art/elePHPant-111354506">http://pok3.deviantart.com/art/elePHPant-111354506</a> Deviantart</li>
+         	 	<li><a href="http://chocoreaper.deviantart.com/art/We-have-questions-to-ask-199178387">http://chocoreaper.deviantart.com/art/We-have-questions-to-ask-199178387</a> Deviantart</li>
+    			<li><a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html</a> Indice  TIOBE</li>
+    			<li><a href="http://slides.html5rocks.com">http://slides.html5rocks.com</a> Inspiración y parte de codigo para slides</li>        	 	
+    			<li><a href="http://php.net">http://php.net</a></li>
+         	 </ul>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header  style="text-align:center;width:100%"><h1 style="margin-bottom:1px;">¿Preguntas?</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	
+          	<img src="pix/questions.jpg" style="margin-left:70px;margin-top:-60px;border-radius:5px;"/>
+         	
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+		<!-- Begin Slide -->
+		<div class="slide">
+          <header><h1>Gracias</h1></header>
+          <style>
+            ul.mini-list > li {
+              font-size: 19px;
+              line-height: 25px;
+              opacity: 0.85;
+            }
+            ul.mini-list {margin-top:-10px;}
+           </style>
+          <section>
+          	<p>
+          		<cite>"No hay lenguaje de programación, 
+          				no importa su estructura, 
+          				que impida que los programadores hagan malos programas"
+          		</cite>
+          		- Larry Flon
+          	</p>
+         	 <ul>         	 
+         	 	<li><a href="https://twitter.com/#!/ajaxman">https://twitter.com/#!/ajaxman</a></li>
+         	 	<li><a href="http://www.linkedin.com/in/ajaxman">http://www.linkedin.com/in/ajaxman</a></li>
+    			<li><a href="http://www.ajaxman.net/">http://www.ajaxman.net</a></li>        	 	
+    			<li><a href="https://github.com/Ajaxman">https://github.com/Ajaxman</a></li>
+    			<li>
+    				<hr />
+    					Taller patrocinado por: <a href="http://musikli.com/"><strong>Musikli.com</strong></a> Social Music Library
+    				<hr />
+    			</li>    			
+         	 </ul>
+         	</section>
+        </div>	
+	<!-- End Slide -->	
+	
+			<div class="slide" id="table-of-contents" style="display:none;">
+          <section>
+         	<ul id="toc-list">
+         		<li></li>
+         	</ul>
+        </div>
+
+
+       </div><!-- End Slides -->
+     
+       
+      
+      <div id="speaker-note" class="invisible" style="display: none;">
+      </div> <!-- speaker note -->
+      <aside id="help" class="sidebar invisible" style="display: hidden;">
+        <table>
+
+          <caption>Help</caption>
+          <tbody>
+            <tr>
+              <th>Move Around</th>
+              <td>&larr;&nbsp;&rarr;</td>
+            </tr>
+            <tr>
+              <th>Source File</th>
+
+              <td>s</td>
+            </tr>
+            <tr>
+              <th>Change Theme</th>
+              <td>t</td>
+            </tr>
+            <tr>
+
+              <th>Syntax Highlight</th>
+              <td>h</td>
+            </tr>
+            <tr>
+              <th>Speaker Notes</th>
+              <td>n</td>
+            </tr>
+
+            <tr>
+              <th>Toggle 3D</th>
+              <td>3</td>
+            </tr>
+            <tr>
+              <th>Help</th>
+              <td>0</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </div> <!-- presentation -->
+     
+
+    <!--[if lt IE 9]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
+    </script>
+    <script>CFInstall.check({ mode: "overlay" });</script>
+    <![endif]-->
+
+	
+    <script src="src/prettify/prettify.js" onload="prettyPrint();" defer></script>
+    <script src="js/utils.js"></script>
+  </body>
+</html>
